@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.25), transparent),
+    linear-gradient(135deg, #f472b6, #c084fc, #818cf8);
+}
+
+.bg-heart {
+  position: fixed;
+  font-size: 24px;
+  opacity: 0.15;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(110vh); }
+  to { transform: translateY(-10vh); }
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 340px;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#yes {
+  background: #22c55e;
+  color: white;
+}
+
+#no {
+  background: #ef4444;
+  color: white;
+  position: absolute;
+}
+</style>
+</head>
+<body>
+
+<!-- Taylor Swift vibe -->
+<audio id="music" src="https://files.catbox.moe/6x9j4m.mp3"></audio>
+<!-- (Love Story instrumental vibe, aman buat web) -->
+
+<div class="card" id="card">
+  <h1> 💝Beby💝</h1>
+
+  <h2>Will you be my Valentine? 💕</h2>
+  <button id="yes">Yes 💖</button>
+  <button id="no">No 😳</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const card = document.getElementById("card");
+const music = document.getElementById("music");
+
+function moveNo() {
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+}
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+yesBtn.onclick = () => {
+  music.play();
+  card.innerHTML = `
+    <h1>💖 HAPPY VALENTINE SAYANG💖</h1>
+    <p>sayang maafin aku yah
+aku sering salah, sering ngilang tanpa kabar,
+dan juga suka bikin 
+kamu sedih dan nangis,
+Itu bener-bener salah aku,
+Aku sayang sama kamu,
+dan aku lagi belajar buat jadi lebih baik buat kamu,
+bukan cuma lewat kata, tapi juga lewat sikap, 
+aku lagi berusaha banget ngertiin kamu di masa proses pendewasaan aku,
+luvv you ayang🥰
+      
+    </p>
+    <h2>I love you, always beby 💕</h2>
+  `;
+};
+
+function createBgHeart() {
+  const heart = document.createElement("div");
+  heart.className = "bg-heart";
+  heart.innerHTML = "🤍";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 12000);
+}
+setInterval(createBgHeart, 400);
+</script>
+
+</body>
+</html>
